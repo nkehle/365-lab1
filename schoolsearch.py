@@ -6,22 +6,25 @@
 #Index 5 GPA: 3.07, 
 #Index 6 TEACHER LN: FAFARD,
 #Index 7 TEACHER F: ROCIO
+
+#import sys
+
 def main():
     # split into lines
     file = open('students.txt', 'r')
     #lines is a list of list, where each list is a line of the file. 
     # put into data structure
     lines = [line.strip().split(',') for line in file]
-    #print(lines)
+   # print(lines)
 
 
-    # user_input = ""
+    user_input = ""
     while(user_input != "Q"):
         user_input = input("Please enter a command:")
         split_input = user_input.split()
         if split_input[0] == "S" or split_input[0] == "Student":
-            return
-            #CODE
+            StudentSearch(split_input, lines)
+
         elif split_input[0] == "T" or split_input[0] == "Teacher":
             return
         
@@ -39,6 +42,18 @@ def main():
             return
         # pass the data structure to the proper command
 
+#print the last name, first name, grade and classroom assignment for
+#each student found and the name of their teacher (last and first name).
+def StudentSearch(atribute, lines):
+    res_lst = []
+    for lst in lines:
+                for item in lst:
+                    if item == atribute[1]:
+                         found = [lst[0], lst[1], lst[2], lst[3], lst[6], lst[7]]
+                         result = ', '.join(found)
+                         res_lst.append(result)
+    for item in res_lst:
+        print(item)
 
 if __name__ == "__main__":
     main()
