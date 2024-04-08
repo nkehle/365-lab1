@@ -8,7 +8,7 @@
 #Index 7 TEACHER F: ROCIO
 
 #import sys
-
+# Coded each search individually which I realize is inneficient since duplicate code but ultimatly i could copy and paste and I was lazy
 def main():
     # split into lines
     file = open('students.txt', 'r')
@@ -27,10 +27,10 @@ def main():
                 if split_input[2] == "B" or split_input[2] == "Bus": 
                     StudentSearchBus(split_input, lines)
             else:
-                 StudentSearch(split_input, lines)
+                StudentSearch(split_input, lines)
 
         elif split_input[0] == "T" or split_input[0] == "Teacher":
-            return
+            TeacherSearch(split_input, lines)
                 
         elif split_input[0] == "B" or split_input[0] == "Bus":
             return
@@ -70,6 +70,16 @@ def StudentSearchBus(atribute, lines):
     for item in res_lst:
         print(item)
 
+def TeacherSearch(atribute, lines):
+    res_lst = []
+    for lst in lines:
+                for item in lst:
+                    if item == atribute[1]:
+                         found = [lst[0], lst[1]]
+                         result = ', '.join(found)
+                         res_lst.append(result)
+    for item in res_lst:
+        print(item)
 
 if __name__ == "__main__":
     main()
