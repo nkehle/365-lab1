@@ -23,18 +23,22 @@ def main():
         user_input = input("Please enter a command:")
         split_input = user_input.split()
         if split_input[0] == "S" or split_input[0] == "Student":
-            StudentSearch(split_input, lines)
+            if len(split_input) == 3:
+                if split_input[2] == "B" or split_input[2] == "Bus": 
+                    StudentSearchBus(split_input, lines)
+            else:
+                 StudentSearch(split_input, lines)
 
         elif split_input[0] == "T" or split_input[0] == "Teacher":
             return
-        
+                
         elif split_input[0] == "B" or split_input[0] == "Bus":
             return
-        
+                
         elif split_input[0] == "G" or split_input[0] == "Grade":
             return
 
-        #Calculate the average of 
+                #Calculate the average of 
         elif split_input[0] == "A" or split_input[0] == "Average":
             return
 
@@ -54,6 +58,18 @@ def StudentSearch(atribute, lines):
                          res_lst.append(result)
     for item in res_lst:
         print(item)
+
+def StudentSearchBus(atribute, lines):
+    res_lst = []
+    for lst in lines:
+                for item in lst:
+                    if item == atribute[1]:
+                         found = [lst[0], lst[1], lst[4]]
+                         result = ', '.join(found)
+                         res_lst.append(result)
+    for item in res_lst:
+        print(item)
+
 
 if __name__ == "__main__":
     main()
