@@ -15,13 +15,14 @@ def main():
     #lines is a list of list, where each list is a line of the file. 
     # put into data structure
     lines = [line.strip().split(',') for line in file]
-   # print(lines)
+    # print(lines)
 
 
     user_input = ""
     while(user_input != "Q"):
         user_input = input("Please enter a command:")
-        split_input = user_input.split()
+        split_input = user_input.split(": ")
+        print(split_input)
         if split_input[0] == "S" or split_input[0] == "Student":
             if len(split_input) == 3:
                 if split_input[2] == "B" or split_input[2] == "Bus": 
@@ -44,7 +45,7 @@ def main():
 
         elif split_input[0] == "I" or split_input[0] == "Info":
             return
-        # pass the data structure to the proper command
+        
 
 #print the last name, first name, grade and classroom assignment for
 #each student found and the name of their teacher (last and first name).
