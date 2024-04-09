@@ -45,17 +45,19 @@ def main():
             else:
                 GradeSearch(split_input, lines)
             
-
         elif split_input[0] == "A" or split_input[0] == "Average":
-            return
+            AverageSearch(split_input, lines)
 
         elif split_input[0] == "I" or split_input[0] == "Info":
-            return
+            InfoSearch(lines)
 
 # handles the options of having a B or H or L
 def handle_input(user_input):
     parts = user_input.split()
     
+    if len(parts) < 2:
+        return parts
+
     command = parts[0]
     if ':' in command:
         command = command.split(':')[0]
@@ -69,6 +71,30 @@ def handle_input(user_input):
         return command, user_input, letter
     else: 
         return command, user_input
+
+# searches through and finds the number of students in each grade
+def InfoSearch(lines):
+    res = [[0,0],[1,0],[2,0],[3,0],[4,0],[5,0]]
+    for i in range(6):
+        for lst in lines:
+            if lst[2] == str(i):
+                res[i][1] += 1
+    cnt = 0
+    for grade in res:
+        print(grade[0], ":", grade[1])
+
+# searches through computes the average gpa for students in a grade
+# and ouputs the grade and average gpa
+def AverageSearch(atribute, lines):
+    total = 0.0
+    cnt = 0
+    for lst in lines:
+        if lst[2] == atribute[1]:
+            val = float(lst[5])
+            cnt += 1
+            total += val
+
+    print(atribute[1], total/cnt)
 
 # searches through and finds all students with a given grade
 def GradeSearch(atribute, lines):
@@ -90,18 +116,18 @@ def GradeSearchHigh(atribute, lines):
             if val >= tmp:
                 tmp = val
                 res = [lst[0], lst[1]]
-    print(res)
+    print(res[1], res[0])
 
 # searches through and finds the lowest gpa in a given grade
 def GradeSearchLow(atribute, lines):
-    tmp = 0.0
+    tmp = 4.0 # start at max gpa
     for lst in lines:
         if lst[2] == atribute[1]:
             val = float(lst[5])
             if val <= tmp:
                 tmp = val
                 res = [lst[0], lst[1]]
-    print(res)
+    print(res[1], res[0])
 
 #print the last name, first name, grade and classroom assignment for
 #each student found and the name of their teacher (last and first name).
