@@ -1,1 +1,1 @@
-Back to the labs we go
+Run using: python schoolsearch.py
