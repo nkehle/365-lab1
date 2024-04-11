@@ -6,17 +6,12 @@
 #Index 5 GPA: 3.07, 
 #Index 6 TEACHER LN: FAFARD,
 #Index 7 TEACHER F: ROCIO
-import re
-#import sys
-# Coded each search individually which I realize is inneficient since duplicate code but ultimatly i could copy and paste and I was lazy
+
 def main():
     # split into lines
     file = open('students.txt', 'r')
     #lines is a list of list, where each list is a line of the file. 
-    # put into data structure
     lines = [line.strip().split(',') for line in file]
-    # print(lines)
-
 
     user_input = ""
     while(user_input != "Q"):

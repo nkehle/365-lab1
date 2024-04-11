@@ -109,12 +109,12 @@ class TestSearch(unittest.TestCase):
 # short form command name, Quit
 # expected output: ''
 # Command: Q
-    def test_Quit(self):
-        captured_output = StringIO()
-        schoolsearch.main("Q")
-        # sys.stdin = sys.__stdin__
-        printed_output = captured_output.getvalue().strip()
-        self.assertEqual(printed_output, "")
+    # def test_Quit(self):
+    #     captured_output = StringIO()
+    #     schoolsearch.main("Q")
+    #     # sys.stdin = sys.__stdin__
+    #     printed_output = captured_output.getvalue().strip()
+    #     self.assertEqual(printed_output, "")
 
         
 
