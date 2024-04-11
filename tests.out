@@ -1,0 +1,36 @@
+Please enter a command:
+I
+0 : 0
+1 : 2
+2 : 13
+3 : 9
+4 : 15
+5 : 0
+
+Please enter a command:
+A: 3
+3 3.048888888888889
+
+Please enter a command:
+G: 1 
+SAELEE, DANILO
+GARTH, JOHN
+
+Please enter a command:
+G: 3 H
+SHARRI SWEDLUND
+
+Please enter a command:
+G: 3 L
+MANIE CIGANEK
+
+Please enter a command:
+S: WOOLERY
+WOOLERY, NOLAN, 2, 104, STEIB, GALE
+
+Please enter a command:
+S WOOLERY B
+WOOLERY, NOLAN, 51
+
+Please enter a command:
+Q
